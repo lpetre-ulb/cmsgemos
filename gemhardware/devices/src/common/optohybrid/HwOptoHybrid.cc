@@ -450,7 +450,7 @@ void gem::hw::optohybrid::HwOptoHybrid::configureScanModule(uint8_t const& mode,
                                                             bool useUltra, bool reset)
 {
   try {
-    xhal::common::rpc::call<::oh::configureScanModule>(rpc, static_cast<uint32_t>(m_link), chip, mode, useUltra, chip, channel, nevts, min, max, step); //FIXME chip is used twice, need a redesign. Probably won't work, but will compile at the moment.
+    /* xhal::common::rpc::call<::oh::configureScanModule>(rpc, static_cast<uint32_t>(m_link), chip, mode, useUltra, chip, channel, nevts, min, max, step); //FIXME chip is used twice, need a redesign. Probably won't work, but will compile at the moment. */
   } GEM_CATCH_RPC_ERROR("HwOptoHybrid::startScanModule", gem::hw::devices::exception::Exception);
 }
 
@@ -458,7 +458,7 @@ void gem::hw::optohybrid::HwOptoHybrid::configureScanModule(uint8_t const& mode,
 void gem::hw::optohybrid::HwOptoHybrid::startScanModule(uint32_t const& nevts, bool useUltra)
 {
   try {
-    xhal::common::rpc::call<::oh::startScanModule>(rpc, static_cast<uint32_t>(m_link), useUltra);
+    /* xhal::common::rpc::call<::oh::startScanModule>(rpc, static_cast<uint32_t>(m_link), useUltra); */
   } GEM_CATCH_RPC_ERROR("HwOptoHybrid::startScanModule", gem::hw::devices::exception::Exception);
 }
 
