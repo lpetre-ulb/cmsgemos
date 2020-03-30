@@ -336,14 +336,14 @@ if(xDAQ_INCLUDE_DIRS AND EXISTS "${xDAQ_INCLUDE_DIRS}/xcept/version.h")
     # xcept seems to be fundamental in xDAQ, so we assume it should always be
     # present. xDAQ would be quite useless otherwise.
     file(STRINGS "${xDAQ_INCLUDE_DIRS}/xcept/version.h"
-         version_h_contents REGEX "#define XCEPT_VERSION_")
+         version_h_contents REGEX "#define CORE_XCEPT_VERSION_")
 
     foreach(line ${version_h_contents})
-        if("${line}" MATCHES "#define XCEPT_VERSION_MAJOR ([0-9])+")
+        if("${line}" MATCHES "#define CORE_XCEPT_VERSION_MAJOR ([0-9])+")
             set(xDAQ_VERSION_MAJOR ${CMAKE_MATCH_1})
-        elseif("${line}" MATCHES "#define XCEPT_VERSION_MINOR ([0-9])+")
+        elseif("${line}" MATCHES "#define CORE_XCEPT_VERSION_MINOR ([0-9])+")
             set(xDAQ_VERSION_MINOR ${CMAKE_MATCH_1})
-        elseif("${line}" MATCHES "#define XCEPT_VERSION_PATCH ([0-9])+")
+        elseif("${line}" MATCHES "#define CORE_XCEPT_VERSION_PATCH ([0-9])+")
             set(xDAQ_VERSION_PATCH ${CMAKE_MATCH_1})
         endif()
     endforeach()
