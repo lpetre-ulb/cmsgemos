@@ -1,10 +1,16 @@
-add_cmsgemos_module(gemutils SOURCES
-    version.cc
-    Lock.cc
-    # LockGuard.cc # Does not compile
+add_cmsgemos_module(gemutils
+    SOURCES
     GEMRegisterUtils.cc
+    Lock.cc
     soap/GEMSOAPToolBox.cc
+    version.cc
 )
-target_link_libraries(gemutils PUBLIC xDAQ::xdaq)
 
-#install(DIRECTORY include/gem DESTINATION include COMPONENT gemutils-devel PATTERN *.h)
+target_link_libraries(gemutils PUBLIC xDAQ::config)
+target_link_libraries(gemutils PUBLIC xDAQ::log4cplus)
+target_link_libraries(gemutils PUBLIC xDAQ::toolbox)
+target_link_libraries(gemutils PUBLIC xDAQ::xcept)
+target_link_libraries(gemutils PUBLIC xDAQ::xdaq)
+target_link_libraries(gemutils PUBLIC xDAQ::xdata)
+target_link_libraries(gemutils PUBLIC xDAQ::xerces-c)
+target_link_libraries(gemutils PUBLIC xDAQ::xoap)
