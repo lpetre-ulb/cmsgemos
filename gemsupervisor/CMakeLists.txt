@@ -1,16 +1,28 @@
 add_cmsgemos_module(
     gemsupervisor
-
     SOURCES
     version.cc
-    GEMSupervisor.cc
-    GEMSupervisorWeb.cc
-    GEMSupervisorMonitor.cc
     GEMGlobalState.cc
+    GEMSupervisor.cc
+    GEMSupervisorMonitor.cc
+    GEMSupervisorWeb.cc
 )
-target_link_libraries(gemsupervisor PUBLIC gemhwdevices)
-target_link_libraries(gemsupervisor PUBLIC gemhwmanagers)
-target_link_libraries(gemsupervisor PUBLIC gemreadout)
+
+target_link_libraries(gemsupervisor PUBLIC gembase)
+target_link_libraries(gemsupervisor PUBLIC gemutils)
+
+target_link_libraries(gemsupervisor PUBLIC xDAQ::config)
+target_link_libraries(gemsupervisor PUBLIC xDAQ::toolbox)
 target_link_libraries(gemsupervisor PUBLIC xDAQ::xdaq2rc)
 
-# install(DIRECTORY include/gem DESTINATION include COMPONENT gemsupervisor-devel PATTERN *.h)
+
+target_link_libraries(gemsupervisor PRIVATE gemhwdevices)
+target_link_libraries(gemsupervisor PRIVATE gemhwmanagers)
+target_link_libraries(gemsupervisor PRIVATE gemreadout)
+
+target_link_libraries(gemsupervisor PRIVATE xDAQ::xdata)
+target_link_libraries(gemsupervisor PRIVATE xDAQ::xdaq)
+target_link_libraries(gemsupervisor PRIVATE xDAQ::xcept)
+target_link_libraries(gemsupervisor PRIVATE xDAQ::xoap)
+
+target_link_libraries(gemsupervisor PRIVATE Boost::boost) # for Boost.Algorithm

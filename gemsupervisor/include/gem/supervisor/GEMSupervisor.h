@@ -6,8 +6,6 @@
 #include <string>
 #include <vector>
 
-#include "uhal/uhal.hpp"
-
 #include "xdaq2rc/RcmsStateNotifier.h"
 
 #include "gem/base/GEMFSMApplication.h"
