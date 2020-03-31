@@ -6,10 +6,12 @@ list(APPEND CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/cmake")
 # endif()
 
 include(FeatureSummary)
-# Prevent in-source builds
-include(PreventInSourceBuilds)
 
 project(cmsgemos)
+
+if(CMAKE_INSTALL_PREFIX_INITIALIZED_TO_DEFAULT)
+    set(CMAKE_INSTALL_PREFIX "${CMAKE_CURRENT_BINARY_DIR}/install" CACHE PATH "Installation path" FORCE)
+endif()
 
 enable_testing()
 
@@ -57,9 +59,6 @@ function(add_cmsgemos_module name)
     add_library(${name} SHARED ${SOURCES} ${ARG_GENERATED_SOURCES})
     target_include_directories(${name} PUBLIC ${CMAKE_CURRENT_LIST_DIR}/include ${CMAKE_CURRENT_BINARY_DIR}/include )
     install(TARGETS ${name} LIBRARY DESTINATION lib COMPONENT ${name})
-    if(NOT ARG_NO_HEADERS)
-        install(DIRECTORY include/gem DESTINATION include COMPONENT ${name}-devel PATTERN *.h)
-    endif()
 
     # Install HTML files
     if(IS_DIRECTORY ${CMAKE_CURRENT_LIST_DIR}/html)
