@@ -11,7 +11,7 @@ target_link_libraries(gemhwdevices PUBLIC gemhwutils)
 target_link_libraries(gemhwdevices PUBLIC gemutils)
 
 # FIXME: HACK, HACK, HACK
-target_include_directories(gemhwdevices PUBLIC /afs/cern.ch/user/l/lpetre/GEM/develop/local_install/opt/xhal/include)
+target_link_libraries(gemhwdevices PUBLIC xhal-client)
 target_link_libraries(gemhwdevices PUBLIC ctp7_modules)
 
 target_link_libraries(gemhwdevices PUBLIC xDAQ::config)
