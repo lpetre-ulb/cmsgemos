@@ -20,7 +20,7 @@ target_link_libraries(gembase PUBLIC xDAQ::xdata)
 target_link_libraries(gembase PUBLIC xDAQ::xgi)
 target_link_libraries(gembase PUBLIC xDAQ::xoap)
 
-target_link_libraries(gembase PUBLIC Boost::boost)
+target_link_libraries(gembase PUBLIC Boost::boost) # for Boost.Assignment
 
 # Create a directory to be used as XDAQ_DOCUMENT_ROOT
 # file(MAKE_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/htdocs)

@@ -1,9 +1,9 @@
 add_cmsgemos_module(gemutils
     SOURCES
+    version.cc
     GEMRegisterUtils.cc
     Lock.cc
     soap/GEMSOAPToolBox.cc
-    version.cc
 )
 
 target_link_libraries(gemutils PUBLIC xDAQ::config)
