@@ -33,7 +33,7 @@ endfunction(prepend)
 find_package(Python2 REQUIRED COMPONENTS Interpreter)
 
 # Boost
-find_package(Boost REQUIRED COMPONENTS filesystem iostreams python system unit_test_framework)
+find_package(Boost REQUIRED COMPONENTS  filesystem iostreams python system unit_test_framework)
 
 # Git version
 find_package(Git)
