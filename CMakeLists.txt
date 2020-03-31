@@ -5,20 +5,20 @@ list(APPEND CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/cmake")
 #     cmake_policy(SET CMP0074 NEW)
 # endif()
 
+include(FeatureSummary)
 # Prevent in-source builds
-# include(FeatureSummary)
 include(PreventInSourceBuilds)
 
 project(cmsgemos)
 
-# enable_testing()
+enable_testing()
 
-set(CMAKE_CXX_STANDARD 14)
+set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -DXDAQ15 -DGEM_VARIANT=ge11 -Dx86_64_centos7 -Dlinux")
 
 # Dependencies
-find_package(CACTUS REQUIRED)
-find_package(xDAQ 3.4 REQUIRED toolbox log4cplus config xcept xoap xerces-c xdaq xdata xgi cgicc i2o xdaq2rc  tstore)
+find_package(CACTUS REQUIRED amc13_amc13 uhal_uhal)
+find_package(xDAQ 3.4 REQUIRED toolbox log4cplus config xcept xoap xerces-c xdaq xdata xgi cgicc i2o xdaq2rc tstore)
 
 # https://stackoverflow.com/a/27630120
 function(prepend var prefix)
@@ -33,7 +33,7 @@ endfunction(prepend)
 find_package(Python2 REQUIRED COMPONENTS Interpreter)
 
 # Boost
-find_package(Boost REQUIRED COMPONENTS iostreams  filesystem python system unit_test_framework)
+find_package(Boost REQUIRED COMPONENTS iostreams thread filesystem unit_test_framework)
 
 # Git version
 find_package(Git)
@@ -78,4 +78,4 @@ foreach(c ${COMPONENTS})
     add_subdirectory(${c})
 endforeach()
 
-# feature_summary(WHAT ALL)
+feature_summary(WHAT ALL)
