@@ -18,7 +18,7 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -DXDAQ15 -DGEM_VARIANT=ge11 -Dx86_64_cen
 
 # Dependencies
 find_package(CACTUS REQUIRED)
-find_package(xDAQ 3.4 REQUIRED toolbox log4cplus config xcept xoap xerces-c xdaq xdata xgi cgicc  i2o tstore xdaq2rc)
+find_package(xDAQ 3.4 REQUIRED toolbox log4cplus config xcept xoap xerces-c xdaq xdata xgi cgicc i2o  tstore xdaq2rc)
 
 # https://stackoverflow.com/a/27630120
 function(prepend var prefix)
