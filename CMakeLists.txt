@@ -73,7 +73,7 @@ function(add_cmsgemos_module name)
     endif()
 endfunction()
 
-set(COMPONENTS gemutils gembase gemhardware gemdaqmonitor gemreadout gemsupervisor gemonlinedb)
+set(COMPONENTS gemutils gembase gemhardware gemdaqmonitor gemreadout gemsupervisor gemonlinedb ctp7_modules)
 
 foreach(c ${COMPONENTS})
     add_subdirectory(${c})

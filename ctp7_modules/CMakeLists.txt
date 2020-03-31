@@ -1,0 +1,2 @@
+add_library(ctp7_modules INTERFACE)
+target_include_directories(ctp7_modules INTERFACE include)
