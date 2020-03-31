@@ -8,7 +8,7 @@ function(run_parseDef file)
     add_custom_command(OUTPUT
         ${CMAKE_CURRENT_BINARY_DIR}/include/gem/onlinedb/detail/${file}Gen.h
         ${CMAKE_CURRENT_BINARY_DIR}/src/common/${file}Gen.cc
-        COMMAND ${Python2_EXECUTABLE}
+        COMMAND ${Python3_EXECUTABLE}
             ${CMAKE_CURRENT_LIST_DIR}/parseDef.py
             ${CMAKE_CURRENT_LIST_DIR}/defs/${file}.json
         DEPENDS parseDef.py defs/${file}.json

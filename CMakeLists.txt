@@ -30,7 +30,7 @@ function(prepend var prefix)
 endfunction(prepend)
 
 # Python
-find_package(Python2 REQUIRED COMPONENTS Interpreter)
+find_package(Python3 REQUIRED COMPONENTS Interpreter)
 
 # Boost
 find_package(Boost REQUIRED COMPONENTS iostreams thread filesystem unit_test_framework)

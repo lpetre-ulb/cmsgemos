@@ -30,12 +30,12 @@ class Field(object):
     Represents a field in the database.
     """
     def __init__(self, json):
-        self.name = _checkedJsonGet(json, 'name', unicode)
+        self.name = _checkedJsonGet(json, 'name', str)
 
         if 'child names' in json:
             self.childNames = _checkedJsonGet(json, 'child names', list)
             for child in self.childNames:
-                assert(type(child) == unicode)
+                assert(type(child) == str)
         else:
             self.childNames = []
 
@@ -45,12 +45,12 @@ class Field(object):
             self.count = None
 
         if 'cpp name' in json:
-            self._cppName = _checkedJsonGet(json, 'cpp name', unicode)
+            self._cppName = _checkedJsonGet(json, 'cpp name', str)
         else:
             self._cppName = _toCamelCase(self.name)
 
         if 'cpp type' in json:
-            self._cppType = _checkedJsonGet(json, 'cpp type', unicode)
+            self._cppType = _checkedJsonGet(json, 'cpp type', str)
         else:
             self._cppType = 'std::uint32_t'
 
@@ -202,7 +202,6 @@ class Field(object):
                 data["{0}"] = get{1}();'''.format(self.name, self.cppName(True))
         else:
             code = ''
-            print self.count
             for ijk in it.product(*self.ranges()):
                 code += '''
                 data["{0}"] = get{1}({2});'''.format(self.name.format(*ijk),
@@ -318,10 +317,10 @@ namespace gem {{
         for inc in extraIncludes:
             extraIncludesCode += '#include {}\n'.format(inc);
 
-    extTableName = _checkedJsonGet(config, 'extension table name', unicode)
-    typeName = _checkedJsonGet(config, 'type name', unicode)
-    kindOfPart = _checkedJsonGet(config, 'kind of part', unicode)
-    partReference = _checkedJsonGet(config, 'part reference', unicode)
+    extTableName = _checkedJsonGet(config, 'extension table name', str)
+    typeName = _checkedJsonGet(config, 'type name', str)
+    kindOfPart = _checkedJsonGet(config, 'kind of part', str)
+    partReference = _checkedJsonGet(config, 'part reference', str)
 
     return template.format(baseName = className,
                            baseNameCaps = className.upper(),
@@ -411,7 +410,7 @@ if __name__ == '__main__':
 
     parser = argparse.ArgumentParser(
         description='Creates C++ and XSD files from a JSON file')
-    parser.add_argument('inputFile', metavar='input.json', type=file,
+    parser.add_argument('inputFile', metavar='input.json', type=open,
                         help='The input JSON file')
     args = parser.parse_args()
 
