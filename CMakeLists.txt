@@ -13,6 +13,8 @@ if(CMAKE_INSTALL_PREFIX_INITIALIZED_TO_DEFAULT)
     set(CMAKE_INSTALL_PREFIX "${CMAKE_CURRENT_BINARY_DIR}/install" CACHE PATH "Installation path" FORCE)
 endif()
 
+include(ColorizeNinjaOutput)
+
 enable_testing()
 
 set(CMAKE_CXX_STANDARD 17)
