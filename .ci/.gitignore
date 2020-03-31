@@ -1,9 +1,0 @@
-# Ignore everything
-*
-# Don't ignore subdirectories
-!*/
-# Don't ignore
-!*.gitignore
-!*.sh
-!*.rst
-!*.md
