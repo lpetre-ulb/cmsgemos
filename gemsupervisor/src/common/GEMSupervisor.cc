@@ -178,11 +178,7 @@ void gem::supervisor::GEMSupervisor::init()
                    << "getApplicationGroup() " << p_appZone->getApplicationGroup(*i)->getName());
 
     xdaq::ApplicationGroup* ag = const_cast<xdaq::ApplicationGroup*>(p_appZone->getApplicationGroup(*i));
-#ifdef x86_64_centos7
     std::set<const xdaq::ApplicationDescriptor*> allApps = ag->getApplicationDescriptors();
-#else
-    std::set<xdaq::ApplicationDescriptor*> allApps = ag->getApplicationDescriptors();
-#endif
     CMSGEMOS_DEBUG("GEMSupervisor::init::getApplicationDescriptors() " << allApps.size());
     for (auto j = allApps.begin(); j != allApps.end(); ++j) {
       std::string classname = (*j)->getClassName();

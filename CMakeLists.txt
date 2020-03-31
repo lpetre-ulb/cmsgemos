@@ -18,7 +18,7 @@ include(ColorizeNinjaOutput)
 enable_testing()
 
 set(CMAKE_CXX_STANDARD 17)
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -DXDAQ15 -DGEM_VARIANT=ge11 -Dx86_64_centos7 -Dlinux")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -DGEM_VARIANT=ge11")
 
 # Dependencies
 find_package(CACTUS REQUIRED amc13_amc13 uhal_uhal)
